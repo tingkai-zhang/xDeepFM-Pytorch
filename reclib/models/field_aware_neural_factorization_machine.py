@@ -1,8 +1,10 @@
 import torch
 from torch.nn import Linear
+
 from reclib.modules import FeedForward
 from reclib.modules import FieldAwareFactorizationLayer
 from reclib.modules.embedders import LinearEmbedder
+
 
 class FieldAwareNeuralFactorizationMachine(torch.nn.Module):
     """
@@ -28,7 +30,6 @@ class FieldAwareNeuralFactorizationMachine(torch.nn.Module):
                                                    dropouts=dropouts[1]),
                                        Linear(mlp_dims[-1], 1))
 
-
     def forward(self, x: torch.LongTensor):
         """
         Parameters
@@ -47,4 +48,3 @@ class FieldAwareNeuralFactorizationMachine(torch.nn.Module):
         x = self.linear(x) + self.mlp(cross_term)
         label_logits = torch.sigmoid(x.squeeze(1))
         return label_logits
-

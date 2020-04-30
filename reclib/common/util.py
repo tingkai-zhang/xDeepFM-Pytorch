@@ -1,16 +1,16 @@
 """
 Various utilities that don't fit anwhere else.
 """
-from itertools import zip_longest, islice
-from typing import Any, Callable, Dict, List, Tuple, TypeVar, Iterable, Iterator
 import importlib
 import json
 import logging
+import os
 import pkgutil
 import random
 import subprocess
 import sys
-import os
+from itertools import zip_longest, islice
+from typing import Any, Callable, Dict, List, Tuple, TypeVar, Iterable, Iterator
 
 try:
     import resource
@@ -115,10 +115,10 @@ def lazy_groups_of(iterator: Iterator[A], group_size: int) -> Iterator[List[A]]:
 
 
 def pad_sequence_to_length(
-    sequence: List,
-    desired_length: int,
-    default_value: Callable[[], Any] = lambda: 0,
-    padding_on_right: bool = True,
+        sequence: List,
+        desired_length: int,
+        default_value: Callable[[], Any] = lambda: 0,
+        padding_on_right: bool = True,
 ) -> List:
     """
     Take a list of objects and pads it to the desired length, returning the padded list.  The
@@ -220,7 +220,7 @@ def prepare_environment(params: Params):
 
 
 def prepare_global_logging(
-    serialization_dir: str, file_friendly_logging: bool
+        serialization_dir: str, file_friendly_logging: bool
 ) -> logging.FileHandler:
     """
     This function configures 3 global logging attributes - streaming stdout and stderr
@@ -290,7 +290,7 @@ LOADED_SPACY_MODELS: Dict[Tuple[str, bool, bool, bool], SpacyModelType] = {}
 
 
 def get_spacy_model(
-    spacy_model_name: str, pos_tags: bool, parse: bool, ner: bool
+        spacy_model_name: str, pos_tags: bool, parse: bool, ner: bool
 ) -> SpacyModelType:
     """
     In order to avoid loading spacy models a whole bunch of times, we'll save references to them,

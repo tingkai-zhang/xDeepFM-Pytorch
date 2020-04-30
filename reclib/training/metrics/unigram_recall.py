@@ -2,9 +2,10 @@ import sys
 from typing import Optional
 
 import torch
+from overrides import overrides
+
 from reclib.common.checks import ConfigurationError
 from reclib.training.metrics.metric import Metric
-from overrides import overrides
 
 
 @Metric.register("unigram_recall")

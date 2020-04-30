@@ -22,14 +22,15 @@ import sys
 from string import Template
 from typing import List, Callable
 
+from flask import Flask, request, Response, jsonify, send_file, send_from_directory
+from flask_cors import CORS
+from gevent.pywsgi import WSGIServer
+from reclib.predictors import Predictor
+
 from reclib.common import JsonDict
 from reclib.common.checks import check_for_gpu
 from reclib.common.util import import_submodules
 from reclib.models.archival import load_archive
-from reclib.predictors import Predictor
-from flask import Flask, request, Response, jsonify, send_file, send_from_directory
-from flask_cors import CORS
-from gevent.pywsgi import WSGIServer
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 

@@ -1,5 +1,6 @@
 import torch
 
+
 class InnerProductNetwork(torch.nn.Module):
 
     def forward(self, x):

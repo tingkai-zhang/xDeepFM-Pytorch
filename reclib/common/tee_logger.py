@@ -2,8 +2,8 @@
 A logger that maintains logs of both stdout and stderr when models are run.
 """
 
-from typing import TextIO
 import os
+from typing import TextIO
 
 
 def replace_cr_with_newline(message: str):
@@ -31,7 +31,7 @@ class TeeLogger:
     """
 
     def __init__(
-        self, filename: str, terminal: TextIO, file_friendly_terminal_output: bool
+            self, filename: str, terminal: TextIO, file_friendly_terminal_output: bool
     ) -> None:
         self.terminal = terminal
         self.file_friendly_terminal_output = file_friendly_terminal_output

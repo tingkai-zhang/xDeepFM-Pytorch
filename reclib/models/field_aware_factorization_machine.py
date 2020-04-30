@@ -1,7 +1,7 @@
 import torch
 
-from reclib.modules.embedders import LinearEmbedder
 from reclib.modules import FieldAwareFactorizationLayer
+from reclib.modules.embedders import LinearEmbedder
 
 
 class FieldAwareFactorizationMachine(torch.nn.Module):

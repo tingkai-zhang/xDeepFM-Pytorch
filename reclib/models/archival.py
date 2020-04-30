@@ -2,14 +2,14 @@
 Helper functions for archiving models and restoring archived models.
 """
 
-from typing import NamedTuple, Dict, Any
 import atexit
 import json
 import logging
 import os
-import tempfile
-import tarfile
 import shutil
+import tarfile
+import tempfile
+from typing import NamedTuple, Dict, Any
 
 from torch.nn import Module
 
@@ -95,10 +95,10 @@ _FTA_NAME = "files_to_archive.json"
 
 
 def archive_model(
-    serialization_dir: str,
-    weights: str = _DEFAULT_WEIGHTS,
-    files_to_archive: Dict[str, str] = None,
-    archive_path: str = None,
+        serialization_dir: str,
+        weights: str = _DEFAULT_WEIGHTS,
+        files_to_archive: Dict[str, str] = None,
+        archive_path: str = None,
 ) -> None:
     """
     Archive the model weights, its training configuration, and its
@@ -158,7 +158,7 @@ def archive_model(
 
 
 def load_archive(
-    archive_file: str, cuda_device: int = -1, overrides: str = "", weights_file: str = None
+        archive_file: str, cuda_device: int = -1, overrides: str = "", weights_file: str = None
 ) -> Archive:
     """
     Instantiates an Archive from an archived `tar.gz` file.

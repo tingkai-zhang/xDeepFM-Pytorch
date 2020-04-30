@@ -2,7 +2,6 @@ from collections import defaultdict
 from typing import Dict, List, Optional, Set, Callable
 
 import torch
-from reclib.common.checks import ConfigurationError
 from reclib.data.dataset_readers.dataset_utils.span_utils import (
     bio_tags_to_spans,
     bioul_tags_to_spans,
@@ -11,6 +10,8 @@ from reclib.data.dataset_readers.dataset_utils.span_utils import (
     TypedStringSpan
 )
 from reclib.data.vocabulary import Vocabulary
+
+from reclib.common.checks import ConfigurationError
 from reclib.nn.util import get_lengths_from_binary_sequence_mask
 from reclib.training.metrics.metric import Metric
 

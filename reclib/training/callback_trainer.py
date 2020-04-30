@@ -9,6 +9,7 @@ import time
 from typing import Dict, Optional, List, Union, Any, Iterable
 
 import torch
+
 from reclib.common import Params
 from reclib.common.checks import parse_cuda_device
 from reclib.common.tqdm import Tqdm

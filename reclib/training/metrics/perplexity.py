@@ -1,7 +1,8 @@
 import torch
+from overrides import overrides
+
 from reclib.training.metrics.average import Average
 from reclib.training.metrics.metric import Metric
-from overrides import overrides
 
 
 @Metric.register("perplexity")

@@ -5,6 +5,7 @@ import logging
 from typing import Set, Dict, TYPE_CHECKING
 
 import torch
+
 from reclib.common.params import Params
 from reclib.training import util as training_util
 from reclib.training.callbacks.callback import Callback, handle_event

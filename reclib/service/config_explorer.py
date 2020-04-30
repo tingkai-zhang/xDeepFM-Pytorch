@@ -19,10 +19,11 @@ import logging
 # pylint: disable=too-many-return-statements
 from typing import Sequence
 
+from flask import Flask, request, Response, jsonify, send_file
 from reclib.common.configuration import configure, choices
+
 from reclib.common.util import import_submodules
 from reclib.service.server_simple import ServerError
-from flask import Flask, request, Response, jsonify, send_file
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 

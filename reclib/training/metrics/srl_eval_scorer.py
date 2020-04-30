@@ -6,10 +6,11 @@ import tempfile
 from collections import defaultdict
 from typing import Dict, List, Optional, Set
 
-from reclib.common.checks import ConfigurationError
-from reclib.models.srl_util import write_conll_formatted_tags_to_file
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+from reclib.models.srl_util import write_conll_formatted_tags_to_file
+
+from reclib.common.checks import ConfigurationError
+from reclib.training.metrics.metric import Metric
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 

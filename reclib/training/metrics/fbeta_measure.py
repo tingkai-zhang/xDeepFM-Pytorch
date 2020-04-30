@@ -1,9 +1,10 @@
 from typing import List, Optional, Union
 
 import torch
+from overrides import overrides
+
 from reclib.common.checks import ConfigurationError
 from reclib.training.metrics.metric import Metric
-from overrides import overrides
 
 
 @Metric.register("fbeta")

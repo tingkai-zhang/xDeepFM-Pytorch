@@ -1,22 +1,22 @@
-from typing import Dict
 import argparse
 import logging
+from typing import Dict
 
 from overrides import overrides
-
-from reclib import __version__
 from reclib.commands.configure import Configure
+from reclib.commands.dry_run import DryRun
 from reclib.commands.elmo import Elmo
 from reclib.commands.evaluate import Evaluate
+from reclib.commands.find_learning_rate import FindLearningRate
 from reclib.commands.fine_tune import FineTune
 from reclib.commands.make_vocab import MakeVocab
-from reclib.commands.predict import Predict
-from reclib.commands.dry_run import DryRun
-from reclib.commands.subcommand import Subcommand
-from reclib.commands.test_install import TestInstall
-from reclib.commands.find_learning_rate import FindLearningRate
-from reclib.commands.train import Train
 from reclib.commands.print_results import PrintResults
+from reclib.commands.test_install import TestInstall
+
+from reclib import __version__
+from reclib.commands.predict import Predict
+from reclib.commands.subcommand import Subcommand
+from reclib.commands.train import Train
 from reclib.common.util import import_submodules
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -63,20 +63,20 @@ def main(prog: str = None,
     subparsers = parser.add_subparsers(title='Commands', metavar='')
 
     subcommands = {
-            # Default commands
-            "configure": Configure(),
-            "train": Train(),
-            "evaluate": Evaluate(),
-            "predict": Predict(),
-            "make-vocab": MakeVocab(),
-            "elmo": Elmo(),
-            "fine-tune": FineTune(),
-            "dry-run": DryRun(),
-            "test-install": TestInstall(),
-            "find-lr": FindLearningRate(),
-            "print-results": PrintResults(),
-            # Superseded by overrides
-            **subcommand_overrides
+        # Default commands
+        "configure": Configure(),
+        "train": Train(),
+        "evaluate": Evaluate(),
+        "predict": Predict(),
+        "make-vocab": MakeVocab(),
+        "elmo": Elmo(),
+        "fine-tune": FineTune(),
+        "dry-run": DryRun(),
+        "test-install": TestInstall(),
+        "find-lr": FindLearningRate(),
+        "print-results": PrintResults(),
+        # Superseded by overrides
+        **subcommand_overrides
     }
 
     for name, subcommand in subcommands.items():

@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 import requests
+
 from reclib.training.callbacks.callback import Callback, handle_event
 from reclib.training.callbacks.events import Events
 

@@ -5,10 +5,11 @@ import subprocess
 import tempfile
 from typing import List
 
-from reclib.common.checks import ConfigurationError
-from reclib.training.metrics.metric import Metric
 from nltk import Tree
 from overrides import overrides
+
+from reclib.common.checks import ConfigurationError
+from reclib.training.metrics.metric import Metric
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 

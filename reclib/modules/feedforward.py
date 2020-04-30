@@ -1,7 +1,7 @@
 """
 A feed-forward neural network.
 """
-from typing import List, Union
+from typing import List, Union, Callable
 
 import torch
 from assertpy import assert_that
@@ -41,7 +41,7 @@ class FeedForward(torch.nn.Module):
                  input_dim: int,
                  hidden_dims: Union[int, List[int]],
                  batch_norm: bool,
-                 activations: str,
+                 activations: Union[Callable, List[Callable]],
                  dropouts: Union[float, List[float]] = 0.0) -> None:
 
         super(FeedForward, self).__init__()

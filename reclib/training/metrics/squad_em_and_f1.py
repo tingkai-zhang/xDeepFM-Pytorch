@@ -1,8 +1,9 @@
 from typing import Tuple
 
-from reclib.tools import squad_eval
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+from reclib.tools import squad_eval
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("squad")

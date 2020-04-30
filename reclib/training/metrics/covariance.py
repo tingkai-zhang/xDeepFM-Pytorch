@@ -1,8 +1,9 @@
 from typing import Optional
 
 import torch
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("covariance")

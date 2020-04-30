@@ -3,9 +3,10 @@ from typing import Optional
 
 import numpy as np
 import torch
+from overrides import overrides
+
 from reclib.training.metrics.covariance import Covariance
 from reclib.training.metrics.metric import Metric
-from overrides import overrides
 
 
 @Metric.register("pearson_correlation")

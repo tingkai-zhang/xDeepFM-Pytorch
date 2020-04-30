@@ -1,4 +1,4 @@
-from typing import Dict, Generic, List, TypeVar
+from typing import Dict, Generic, TypeVar
 
 import torch
 

@@ -10,6 +10,9 @@ import shutil
 from typing import Any, Union, Dict, Iterable, List, Optional, Tuple
 
 import torch
+from torch.nn.parallel import replicate, parallel_apply
+from torch.nn.parallel.scatter_gather import gather
+
 from reclib.common.checks import ConfigurationError, check_for_gpu
 from reclib.common.params import Params
 from reclib.common.tqdm import Tqdm
@@ -20,8 +23,6 @@ from reclib.data.iterators.data_iterator import TensorDict
 from reclib.models.archival import CONFIG_NAME
 from reclib.models.model import Model
 from reclib.nn import util as nn_util
-from torch.nn.parallel import replicate, parallel_apply
-from torch.nn.parallel.scatter_gather import gather
 
 logger = logging.getLogger(__name__)
 

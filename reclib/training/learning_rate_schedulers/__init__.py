@@ -14,4 +14,3 @@ In addition, reclib also provides `cosine with restarts <https://arxiv.org/abs/1
 a Noam schedule, and a slanted triangular schedule, which are registered as
 "cosine", "noam", and "slanted_triangular", respectively.
 """
-

@@ -46,8 +46,8 @@ import logging
 import os
 
 from reclib.commands.subcommand import Subcommand
-from reclib.common.checks import check_for_gpu
 from reclib.common import Params
+from reclib.common.checks import check_for_gpu
 from reclib.common.util import prepare_environment, prepare_global_logging, cleanup_global_logging, dump_metrics
 from reclib.models.archival import archive_model, CONFIG_NAME
 from reclib.models.model import Model, _DEFAULT_WEIGHTS
@@ -103,7 +103,7 @@ class Train(Subcommand):
                                type=str,
                                default='',
                                help='Prefix to use for data caching, giving current parameter '
-                               'settings a name in the cache, instead of computing a hash')
+                                    'settings a name in the cache, instead of computing a hash')
 
         subparser.set_defaults(func=train_model_from_args)
 
@@ -225,13 +225,13 @@ def train_model(params: Params,
                                            cache_directory,
                                            cache_prefix)
         trainer = Trainer.from_params(
-                model=pieces.model,
-                serialization_dir=serialization_dir,
-                iterator=pieces.iterator,
-                train_data=pieces.train_dataset,
-                validation_data=pieces.validation_dataset,
-                params=pieces.params,
-                validation_iterator=pieces.validation_iterator)
+            model=pieces.model,
+            serialization_dir=serialization_dir,
+            iterator=pieces.iterator,
+            train_data=pieces.train_dataset,
+            validation_data=pieces.validation_dataset,
+            params=pieces.params,
+            validation_iterator=pieces.validation_iterator)
 
         evaluation_iterator = pieces.validation_iterator or pieces.iterator
         evaluation_dataset = pieces.test_dataset

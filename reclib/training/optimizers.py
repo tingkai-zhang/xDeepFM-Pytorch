@@ -21,8 +21,9 @@ import re
 from typing import List, Any, Dict
 
 import torch
-from reclib.common import Params, Registrable
 from pytorch_pretrained_bert.optimization import BertAdam
+
+from reclib.common import Params, Registrable
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 

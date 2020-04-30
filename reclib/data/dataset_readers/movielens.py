@@ -31,7 +31,7 @@ class MovieLens20MDataset(torch.utils.data.Dataset):
     def __init__(self, dataset_path, sep=','):
         data = pd.read_csv(dataset_path, sep=sep,
                            engine='python').to_numpy()[:, :3]
-        # ID starts from 1
+        # ID in Movielens starts from 1
         self.items = data[:, :2].astype(np.int) - 1
         self.targets = self.__preprocess_target(data[:, 2]).astype(np.float32)
         self.field_sizes = np.max(self.items, axis=0) + 1

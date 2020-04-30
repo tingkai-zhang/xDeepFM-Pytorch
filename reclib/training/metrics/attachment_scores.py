@@ -1,8 +1,9 @@
 from typing import Optional, List
 
 import torch
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("attachment_scores")

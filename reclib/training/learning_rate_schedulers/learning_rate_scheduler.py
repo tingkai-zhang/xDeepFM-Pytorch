@@ -1,11 +1,12 @@
 from typing import Dict, Any
 
 import torch
+from overrides import overrides
+
 from reclib.common.checks import ConfigurationError
 from reclib.common.params import Params
 from reclib.common.registrable import Registrable
 from reclib.training.scheduler import Scheduler
-from overrides import overrides
 
 
 class LearningRateScheduler(Scheduler, Registrable):

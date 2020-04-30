@@ -6,6 +6,7 @@ import time
 from typing import Union, Dict, Any, List, Tuple
 
 import torch
+
 from reclib.common.registrable import Registrable
 from reclib.nn import util as nn_util
 

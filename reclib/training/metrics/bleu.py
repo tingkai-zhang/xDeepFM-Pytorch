@@ -3,8 +3,9 @@ from collections import Counter
 from typing import Iterable, Tuple, Dict, Set
 
 import torch
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("bleu")

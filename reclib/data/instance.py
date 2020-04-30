@@ -1,6 +1,7 @@
 from typing import Dict, MutableMapping, Mapping
 
-from reclib.data.fields.field import DataArray, Field
+from reclib.data.fields.field import Field
+
 
 class Instance(Mapping[str, Field]):
     """
@@ -40,7 +41,6 @@ class Instance(Mapping[str, Field]):
         it is necessary to supply the vocab.
         """
         self.fields[field_name] = field
-
 
     def __str__(self) -> str:
         base_string = f"Instance with fields:\n"

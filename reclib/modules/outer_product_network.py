@@ -1,5 +1,6 @@
 import torch
 
+
 class OuterProductNetwork(torch.nn.Module):
 
     def __init__(self, num_fields, embed_dim, kernel_type='mat'):
@@ -33,4 +34,3 @@ class OuterProductNetwork(torch.nn.Module):
             return torch.sum(kp * q, -1)
         else:
             return torch.sum(p * q * self.kernel.unsqueeze(0), -1)
-

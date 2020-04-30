@@ -2,8 +2,9 @@ import logging
 from typing import List
 
 import torch
-from reclib.training.learning_rate_schedulers.learning_rate_scheduler import LearningRateScheduler
 from overrides import overrides
+
+from reclib.training.learning_rate_schedulers.learning_rate_scheduler import LearningRateScheduler
 
 logger = logging.getLogger(__name__)
 

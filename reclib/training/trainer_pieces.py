@@ -3,12 +3,13 @@ import os
 import re
 from typing import Iterable, NamedTuple
 
+from reclib.data.vocabulary import Vocabulary
+
 from reclib.common import Params
 from reclib.common.checks import ConfigurationError
 from reclib.common.util import get_frozen_and_tunable_parameter_names
 from reclib.data.instance import Instance
 from reclib.data.iterators.data_iterator import DataIterator
-from reclib.data.vocabulary import Vocabulary
 from reclib.models.model import Model
 from reclib.training import util as training_util
 

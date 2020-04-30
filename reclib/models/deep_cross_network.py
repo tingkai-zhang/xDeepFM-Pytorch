@@ -1,5 +1,6 @@
 import torch
 from torch.nn import Sequential, Linear
+
 from reclib.modules import CrossNetwork
 from reclib.modules import FeedForward
 from reclib.modules.embedders import LinearEmbedder, Embedding
@@ -27,11 +28,11 @@ class DeepCrossNetwork(torch.nn.Module):
             mlp_layers = len(mlp_dims)
 
         self.mlp = Sequential(FeedForward(num_layers=mlp_layers,
-                                           input_dim=self.embed_output_dim,
-                                           hidden_dims=mlp_dims,
-                                           batch_norm=True,
-                                           activations=torch.nn.ReLU(),
-                                           dropouts=dropout),
+                                          input_dim=self.embed_output_dim,
+                                          hidden_dims=mlp_dims,
+                                          batch_norm=True,
+                                          activations=torch.nn.ReLU(),
+                                          dropouts=dropout),
                               Linear(mlp_dims[-1], 1))
 
     def forward(self, x):

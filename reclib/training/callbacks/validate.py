@@ -3,6 +3,7 @@ import math
 from typing import Iterable, List, TYPE_CHECKING
 
 import torch
+
 from reclib.common.tqdm import Tqdm
 from reclib.common.util import lazy_groups_of
 from reclib.data.instance import Instance

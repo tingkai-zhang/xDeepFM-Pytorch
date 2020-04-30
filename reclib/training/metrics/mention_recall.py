@@ -1,8 +1,9 @@
 from typing import Any, Dict, List, Set, Tuple
 
 import torch
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("mention_recall")

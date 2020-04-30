@@ -1,17 +1,20 @@
-import  torch
-from reclib.modules import FeedForward
+import torch
 from torch import nn
+
+from reclib.modules import FeedForward
+
+
 class AttentionalFactorizationLayer(torch.nn.Module):
 
     def __init__(self, embed_dim, attn_size, dropouts):
         super().__init__()
         activations = [nn.ReLU(), nn.Softmax(dim=1)]
         self.attention_layer = FeedForward(2,
-                                       embed_dim,
-                                       [attn_size, 1],
-                                       False,
-                                       activations,
-                                       [0, dropouts[0]])
+                                           embed_dim,
+                                           [attn_size, 1],
+                                           False,
+                                           activations,
+                                           [0, dropouts[0]])
 
         self.linear_layer = torch.nn.Linear(embed_dim, 1)
         self.dropout = nn.Dropout(p=dropouts[1])

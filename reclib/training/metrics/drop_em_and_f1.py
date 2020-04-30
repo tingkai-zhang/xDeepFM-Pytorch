@@ -1,10 +1,11 @@
 from typing import Tuple, List, Union
 
-from reclib.tools.drop_eval import (get_metrics as drop_em_and_f1,
-                                      answer_json_to_strings)
-from reclib.tools.squad_eval import metric_max_over_ground_truths
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
+from reclib.tools.drop_eval import (get_metrics as drop_em_and_f1,
+                                    answer_json_to_strings)
+from reclib.tools.squad_eval import metric_max_over_ground_truths
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("drop")

@@ -3,9 +3,10 @@ from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import torch
-from reclib.training.metrics.metric import Metric
 from overrides import overrides
 from scipy.optimize import linear_sum_assignment
+
+from reclib.training.metrics.metric import Metric
 
 
 @Metric.register("conll_coref_scores")

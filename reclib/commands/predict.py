@@ -49,25 +49,27 @@ or dataset to JSON predictions using a trained model and its
       --include-package INCLUDE_PACKAGE
                             additional packages to include
 """
-from typing import List, Iterator, Optional
 import argparse
-import sys
 import json
+import sys
+from typing import List, Iterator, Optional
+
+from reclib.predictors.predictor import Predictor, JsonDict
 
 from reclib.commands.subcommand import Subcommand
 from reclib.common.checks import check_for_gpu, ConfigurationError
 from reclib.common.file_utils import cached_path
 from reclib.common.util import lazy_groups_of
-from reclib.models.archival import load_archive
-from reclib.predictors.predictor import Predictor, JsonDict
 from reclib.data import Instance
+from reclib.models.archival import load_archive
+
 
 class Predict(Subcommand):
     def add_subparser(self, name: str, parser: argparse._SubParsersAction) -> argparse.ArgumentParser:
         # pylint: disable=protected-access
         description = '''Run the specified model against a JSON-lines input file.'''
         subparser = parser.add_parser(
-                name, description=description, help='Use a trained model to make predictions.')
+            name, description=description, help='Use a trained model to make predictions.')
 
         subparser.add_argument('archive_file', type=str, help='the archived model to make predictions with')
         subparser.add_argument('input_file', type=str, help='path to or url of the input file')
@@ -112,6 +114,7 @@ class Predict(Subcommand):
 
         return subparser
 
+
 def _get_predictor(args: argparse.Namespace) -> Predictor:
     check_for_gpu(args.cuda_device)
     archive = load_archive(args.archive_file,
@@ -142,7 +145,7 @@ class _PredictManager:
         self._batch_size = batch_size
         self._print_to_console = print_to_console
         if has_dataset_reader:
-            self._dataset_reader = predictor._dataset_reader # pylint: disable=protected-access
+            self._dataset_reader = predictor._dataset_reader  # pylint: disable=protected-access
         else:
             self._dataset_reader = None
 
@@ -209,6 +212,7 @@ class _PredictManager:
 
         if self._output_file is not None:
             self._output_file.close()
+
 
 def _predict(args: argparse.Namespace) -> None:
     predictor = _get_predictor(args)

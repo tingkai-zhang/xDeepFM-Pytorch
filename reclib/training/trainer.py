@@ -8,11 +8,12 @@ from typing import Dict, Optional, List, Tuple, Union, Iterable, Any
 
 import torch
 import torch.optim.lr_scheduler
+
 from reclib.common import Params
 from reclib.common.checks import ConfigurationError, parse_cuda_device
 from reclib.common.tqdm import Tqdm
 from reclib.common.util import (dump_metrics, gpu_memory_mb, peak_memory_mb,
-                                  lazy_groups_of)
+                                lazy_groups_of)
 from reclib.data.instance import Instance
 from reclib.data.iterators.data_iterator import DataIterator, TensorDict
 from reclib.models.model import Model

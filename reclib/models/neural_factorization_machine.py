@@ -1,9 +1,10 @@
 import torch
 from torch.nn import Sequential, Linear
-from reclib.modules.embedders import LinearEmbedder
+
+from reclib.modules import FactorizationMachine
 from reclib.modules import FeedForward
 from reclib.modules.embedders import Embedding
-from reclib.modules import FactorizationMachine
+from reclib.modules.embedders import LinearEmbedder
 
 
 class NeuralFactorizationMachine(torch.nn.Module):
@@ -25,14 +26,13 @@ class NeuralFactorizationMachine(torch.nn.Module):
             torch.nn.Dropout(dropouts[0])
         )
 
-
         self.mlp = Sequential(FeedForward(num_layers=1,
-                                           input_dim=embed_dim,
-                                           hidden_dims=mlp_dims,
-                                           batch_norm=True,
-                                           activations=torch.nn.ReLU(),
-                                           dropouts=dropouts[1]),
-                            Linear(mlp_dims[-1], 1))
+                                          input_dim=embed_dim,
+                                          hidden_dims=mlp_dims,
+                                          batch_norm=True,
+                                          activations=torch.nn.ReLU(),
+                                          dropouts=dropouts[1]),
+                              Linear(mlp_dims[-1], 1))
 
     def forward(self, x):
         """

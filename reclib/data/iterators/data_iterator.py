@@ -1,9 +1,12 @@
-from torch.utils.data import DataLoader
+import logging
+from typing import Dict, Union
+
 import torch
-import  logging
-from typing import  Dict, Union
-from reclib.data.fields import MetadataField
+from torch.utils.data import DataLoader
+
 from reclib.data.dataset import Batch
+from reclib.data.fields import MetadataField
+
 logger = logging.getLogger(__name__)
 
 TensorDict = Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]
